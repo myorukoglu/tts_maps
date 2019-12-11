@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+<div id="destination-map" class="map"></div>
+
+<%= javascript_tag do %>
+  var destinations = []
+  <% @destinations.each do |destination| %>
+    destinations.push({
+      'latitude': '<%= j destination.latitude.to_s %>',
+      'longitude': '<%= j destination.longitude.to_s %>',
+      'image': '<%= j image_path("icon.png") %>'
+    })   
+   <% end %>
+<% end %>
