@@ -18,7 +18,10 @@
 
 
 <%= javascript_tag do %>
-   var latitude = '<%= j @destination.latitude.to_s %>';
-   var longitude = '<%= j @destination.longitude.to_s %>';
-   var address = '<%= j @destination.city %>';
+   var destinations = []
+   destinations.push({
+      'latitude': '<%= j @destination.latitude.to_s %>',
+      'longitude': '<%= j @destination.longitude.to_s %>',
+      'image': '<%= j image_path("icon.png") %>'
+    })   
 <% end %>

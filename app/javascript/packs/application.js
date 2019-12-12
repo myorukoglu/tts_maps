@@ -55,7 +55,9 @@ require("channels");
 $(document).ready(function (){
 
   function initialize() {
-      
+      if(destinations.length === 0){
+        return
+      }
       var myCoords = new google.maps.LatLng(destinations[0].latitude,destinations[0].longitude);
       // var myCoords = new google.maps.LatLng(latitude,longitude);
       
@@ -78,7 +80,8 @@ $(document).ready(function (){
         var marker = new google.maps.Marker({
             position: cords,
             map: map,
-            title: address
+            title: address,
+            draggable:true
         });
         google.maps.event.addListener(marker, 'click', function() {
         infowindow.open(map,marker);
